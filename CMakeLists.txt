@@ -1,34 +1,34 @@
-cmake_minimum_required(VERSION 3.5)
+
+cmake_minimum_required(VERSION 2.8.3)
 project(ue_msgs)
 
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
+find_package(catkin REQUIRED COMPONENTS
+  std_msgs
+  geometry_msgs
+  message_generation
+)
 
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
+add_message_files(
+  DIRECTORY msg FILES
+  EntityState.msg
+)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+add_service_files(DIRECTORY srv FILES
+  GetEntityState.srv
+  SetEntityState.srv
+  SpawnEntity.srv
+  DeleteEntity.srv
+  Attach.srv
+)
 
-# find dependencies
-find_package(ament_cmake REQUIRED)
+generate_messages(DEPENDENCIES
+  std_msgs
+  geometry_msgs
+)
 
-find_package(geometry_msgs REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/EntityState.msg"
-  "srv/SetEntityState.srv"
-  "srv/GetEntityState.srv"
-  "srv/SpawnEntity.srv"
-  "srv/DeleteEntity.srv"
-  "srv/Attach.srv"
-  DEPENDENCIES geometry_msgs
- )
-
-ament_package()
+catkin_package(
+  CATKIN_DEPENDS
+  message_runtime
+  std_msgs
+  geometry_msgs
+)
