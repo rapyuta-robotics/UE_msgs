@@ -14,10 +14,11 @@ add_message_files(
 )
 
 add_service_files(DIRECTORY srv FILES
-  SpawnEntity.srv
-  Attach.srv
   GetEntityState.srv
   SetEntityState.srv
+  SpawnEntity.srv
+  DeleteEntity.srv
+  Attach.srv
 )
 
 generate_messages(DEPENDENCIES
@@ -31,4 +32,3 @@ catkin_package(
   std_msgs
   geometry_msgs
 )
-
