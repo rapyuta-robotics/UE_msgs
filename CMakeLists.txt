@@ -28,6 +28,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SpawnEntity.srv"
   "srv/DeleteEntity.srv"
   "srv/Attach.srv"
+  "srv/SetInt16.srv"
   DEPENDENCIES geometry_msgs
  )
 
