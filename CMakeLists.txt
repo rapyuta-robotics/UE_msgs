@@ -19,6 +19,9 @@ add_service_files(DIRECTORY srv FILES
   SpawnEntity.srv
   DeleteEntity.srv
   Attach.srv
+  GetBoolFromId.srv
+  GetInt32FromId.srv
+  SetInt32.srv
 )
 
 generate_messages(DEPENDENCIES
