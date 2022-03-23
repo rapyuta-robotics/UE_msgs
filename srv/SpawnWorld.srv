@@ -1,0 +1,5 @@
+string world_model                # Entity world model name
+ue_msgs/EntityState state         # World given name + initial pose
+---
+bool success
+string status_message
