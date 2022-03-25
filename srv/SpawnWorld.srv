@@ -1,0 +1,6 @@
+string world_model                # World model name
+string world_instance_name        # World instance unique name
+geometry_msgs/Pose pose           # World instance initial pose
+---
+bool success
+string status_message
