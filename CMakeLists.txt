@@ -23,9 +23,11 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/EntityState.msg"
+  "msg/SpawnEntityState.msg"
   "srv/SetEntityState.srv"
   "srv/GetEntityState.srv"
   "srv/SpawnEntity.srv"
+  "srv/SpawnEntities.srv"
   "srv/DeleteEntity.srv"
   "srv/SpawnWorld.srv"
   "srv/Attach.srv"
