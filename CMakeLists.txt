@@ -11,12 +11,14 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   DIRECTORY msg FILES
   EntityState.msg
+  SpawnEntityState.msg
 )
 
 add_service_files(DIRECTORY srv FILES
   GetEntityState.srv
   SetEntityState.srv
   SpawnEntity.srv
+  SpawnEntities.srv
   DeleteEntity.srv
   SpawnWorld.srv
   Attach.srv

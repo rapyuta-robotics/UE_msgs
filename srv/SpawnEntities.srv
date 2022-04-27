@@ -1,0 +1,5 @@
+string xml                                  # Entities XML description as a string
+ue_msgs/SpawnEntityState[] spawn_state      # Details for entities to spawn
+---
+bool success                      # Return true if spawned successfully.
+string status_message             # Comments if available.
