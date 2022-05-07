@@ -1,5 +1,6 @@
-string xml                                  # Entities XML description as a string
-ue_msgs/SpawnEntityState[] spawn_state      # Details for entities to spawn
+string[] type                # type for each entity
+ue_msgs/EntityState[] state  # pose, twist, name, reference_frame
+string[] tags                # tags to use in UE
 ---
 bool success                      # Return true if spawned successfully.
 string status_message             # Comments if available.
