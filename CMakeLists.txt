@@ -17,6 +17,7 @@ add_service_files(DIRECTORY srv FILES
   GetEntityState.srv
   SetEntityState.srv
   SpawnEntity.srv
+  SpawnEntities.srv
   DeleteEntity.srv
   SpawnWorld.srv
   Attach.srv
