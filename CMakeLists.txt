@@ -26,6 +26,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetEntityState.srv"
   "srv/GetEntityState.srv"
   "srv/SpawnEntity.srv"
+  "srv/SpawnEntities.srv"
   "srv/DeleteEntity.srv"
   "srv/SpawnWorld.srv"
   "srv/Attach.srv"
