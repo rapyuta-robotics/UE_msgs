@@ -2,6 +2,7 @@ string xml                        # Entity XML description as a string, either U
 string robot_namespace            # Spawn robot and all ROS interfaces under this namespace
 ue_msgs/EntityState state         # Initial entity pose.
 string[] tags
+string json_parameters            # optional parameters, in json format
 ---
 bool success                      # Return true if spawned successfully.
 string status_message             # Comments if available.
