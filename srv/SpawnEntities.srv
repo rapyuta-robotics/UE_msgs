@@ -1,6 +1,7 @@
 string[] type                # type for each entity
 ue_msgs/EntityState[] state  # pose, twist, name, reference_frame
 string[] tags                # tags to use in UE
+string[] json_parameters     # optional parameters, in json format
 ---
 bool success                      # Return true if spawned successfully.
 string status_message             # Comments if available.
