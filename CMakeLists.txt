@@ -21,18 +21,32 @@ find_package(ament_cmake REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+set(EXCEPTION_MSG 
+# msg here won't be built.
+)
+
+macro(subdirlist result dir type)
+  file(GLOB children "${dir}/${type}")
+  set(filelist "")
+  foreach(child ${children})
+      get_filename_component(child ${child} NAME)
+      list(FIND EXCEPTION_MSG ${child} index)
+      if(${index} EQUAL -1)
+        list(APPEND filelist "${dir}/${child}")
+      else()
+        message("${child} is not supported in ros2")
+      endif()
+  endforeach()
+  set(${result} ${filelist})
+endmacro()
+
+subdirlist(MSG_FILES "msg" "*.msg")
+subdirlist(SRV_FILES "srv" "*.srv")
+
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/EntityState.msg"
-  "srv/SetEntityState.srv"
-  "srv/GetEntityState.srv"
-  "srv/SpawnEntity.srv"
-  "srv/SpawnEntities.srv"
-  "srv/DeleteEntity.srv"
-  "srv/SpawnWorld.srv"
-  "srv/Attach.srv"
-  "srv/GetBoolFromId.srv"
-  "srv/GetInt32FromId.srv"
-  "srv/SetInt32.srv"
+  ${MSG_FILES}
+  ${SRV_FILES}
+
   DEPENDENCIES geometry_msgs
  )
 
