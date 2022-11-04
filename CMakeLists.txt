@@ -8,23 +8,21 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-add_message_files(
-  DIRECTORY msg FILES
-  EntityState.msg
-)
+macro(subdirlist result curdir)
+    file(GLOB children ${curdir})
+    set(filelist "")
+    foreach(child ${children})
+        get_filename_component(child ${child} NAME)
+        list(APPEND filelist ${child})
+    endforeach()
+    set(${result} ${filelist})
+endmacro()
 
-add_service_files(DIRECTORY srv FILES
-  GetEntityState.srv
-  SetEntityState.srv
-  SpawnEntity.srv
-  SpawnEntities.srv
-  DeleteEntity.srv
-  SpawnWorld.srv
-  Attach.srv
-  GetBoolFromId.srv
-  GetInt32FromId.srv
-  SetInt32.srv
-)
+subdirlist(MSG_FILES "msg/*.msg")
+subdirlist(SRV_FILES "srv/*.srv")
+
+add_message_files(DIRECTORY msg FILES ${MSG_FILES})
+add_service_files(DIRECTORY srv FILES ${SRV_FILES})
 
 generate_messages(DEPENDENCIES
   std_msgs
