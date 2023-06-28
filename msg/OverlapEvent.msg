@@ -16,7 +16,7 @@ string other_actor_name
 string other_component_name 
 int32 other_body_index 
 
-# component overlap event only
+# component begin event only
 bool from_sweep
-ue_msgs/HitResult hit_result
+ue_msgs/HitResult sweep_result
 
