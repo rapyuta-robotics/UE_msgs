@@ -1,0 +1,2 @@
+string[] actors
+string[] components
