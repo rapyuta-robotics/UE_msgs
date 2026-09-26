@@ -1,0 +1,4 @@
+schema_version: 1
+package: ue_msgs
+description: Service and message definitions for the Unreal Engine simulation bridge (oks_ue) - spawning/attaching/deleting simulated entities and getting/setting their pose and other properties.
+kind: msgs
